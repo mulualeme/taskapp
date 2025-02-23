@@ -82,67 +82,17 @@ class _AddNewTaskPageState extends State<AddNewTaskPage> {
         actions: [
           Row(
             children: [
-              // Date selector
+              // Combined date and time selector
               GestureDetector(
-                onTap: () async {
-                  final DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    firstDate: DateTime.now(),
-                    lastDate: DateTime.now().add(const Duration(days: 90)),
-                    initialDate: selectedDate,
-                  );
-                  if (pickedDate != null) {
-                    setState(() {
-                      selectedDate = DateTime(
-                        pickedDate.year,
-                        pickedDate.month,
-                        pickedDate.day,
-                        selectedDate.hour,
-                        selectedDate.minute,
-                      );
-                    });
-                  }
-                },
+                onTap: _selectDateTime,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Icon(Icons.calendar_today, size: 16),
+                      Icon(Icons.event, size: 16),
                       SizedBox(width: 4),
                       Text(
-                        DateFormat('dd/MM/yyyy').format(selectedDate),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              // Time selector
-              GestureDetector(
-                onTap: () async {
-                  final TimeOfDay? pickedTime = await showTimePicker(
-                    context: context,
-                    initialTime: TimeOfDay.fromDateTime(selectedDate),
-                  );
-                  if (pickedTime != null) {
-                    setState(() {
-                      selectedDate = DateTime(
-                        selectedDate.year,
-                        selectedDate.month,
-                        selectedDate.day,
-                        pickedTime.hour,
-                        pickedTime.minute,
-                      );
-                    });
-                  }
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.access_time, size: 16),
-                      SizedBox(width: 4),
-                      Text(
-                        DateFormat('HH:mm').format(selectedDate),
+                        DateFormat('dd/MM/yyyy HH:mm').format(selectedDate),
                       ),
                     ],
                   ),
