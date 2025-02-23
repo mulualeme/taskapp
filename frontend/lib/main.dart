@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Cera Pro',
         inputDecorationTheme: InputDecorationTheme(
           contentPadding: EdgeInsets.all(27.0),
           enabledBorder: OutlineInputBorder(
