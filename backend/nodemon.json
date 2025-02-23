@@ -1,0 +1,7 @@
+{
+  "watch": ["src"],
+  "ignore": ["dist/*"],
+  "ext": ".ts,.js",
+  "exec": "ts-node ./src/index.ts",
+  "legacyWatch": true
+}
