@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/constants/utils.dart';
 import 'package:intl/intl.dart';
@@ -16,7 +15,7 @@ class _DateSelectorState extends State<DateSelector> {
   @override
   Widget build(BuildContext context) {
     final weekDates = getWeekDates(weekOffset);
-    String monthName = DateFormat('MMMM').format(weekDates[0]);
+    String monthName = DateFormat("MMMM").format(weekDates.first);
     return Column(
       children: [
         Padding(
