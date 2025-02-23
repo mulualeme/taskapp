@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/features/auth/cubit/auth_cubit.dart';
 import 'package:frontend/features/auth/pages/signup_page.dart';
+import 'package:frontend/features/home/cubit/task_cubit.dart';
 import 'package:frontend/features/home/pages/home_page.dart';
 
 void main() {
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(create: (_) => AuthCubit()),
+      BlocProvider(create: (_) => TasksCubit()),
     ],
     child: const MyApp(),
   ));
@@ -68,7 +70,7 @@ class _MyAppState extends State<MyApp> {
           if (state is AuthLoggedIn) {
             return const HomePage();
           }
-          return const HomePage();
+          return const SignupPage();
         },
       ),
     );

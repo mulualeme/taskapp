@@ -16,7 +16,7 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       emit(AuthLoading());
       final userModel = await authRemoteRepository.getUserData();
-      print(userModel);
+
       if (userModel != null) {
         emit(AuthLoggedIn(userModel));
         return;

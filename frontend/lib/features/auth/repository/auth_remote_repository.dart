@@ -55,7 +55,7 @@ class AuthRemoteRepository {
   Future<UserModel?> getUserData() async {
     try {
       final token = await spService.getToken();
-      print(token);
+
       if (token == null) {
         return null;
       }
@@ -77,7 +77,6 @@ class AuthRemoteRepository {
       if (userResponse.statusCode != 200) {
         throw jsonDecode(userResponse.body)['error'];
       }
-      print(userResponse.body);
 
       return UserModel.fromJson(userResponse.body);
     } catch (e) {
